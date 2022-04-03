@@ -14,7 +14,7 @@
         const scoreNumEl = document.querySelector('.score .num');
 
         let state = {
-            answer: initProblem(inequalityEl), // {question: String, num: int, open: bool, rightDirection: bool}
+            answer: initProblem(inequalityEl), // {num: int, open: bool, rightDirection: bool}
             response: {num: 0, open: true, rightDirection: true}, // {num: int, open: bool, rightDirection: bool}
             mouseDown: false,
             problemEnded: false,
@@ -92,6 +92,8 @@
             state.response.rightDirection === state.answer.rightDirection
         );
 
+        // if problem not yet ended, increment score if answer correct or decrease by SCORE_PENALTY if not correct
+        // score cannot fall below 0
         const score = (!state.problemEnded) ? (correct) ? state.score + 1 : Math.max(0, state.score - SCORE_PENALTY) : state.score;
         scoreNumEl.textContent = score;
 
@@ -165,7 +167,7 @@
     const xToNum = (canvasWidth, x) => {
         let num = Math.round(x / distanceBetweenMarks(canvasWidth)) - RANGE/2 - 1;
 
-        // clamp x to nearest valid integer
+        // clamp num to nearest valid integer
         num = Math.min(Math.max(num, -RANGE/2), RANGE/2);
 
         return num;
