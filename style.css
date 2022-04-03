@@ -1,0 +1,50 @@
+html {
+    font-size: 120%;
+    font-family: sans-serif;
+}
+
+html, body {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#numberline {
+    position: relative;
+    user-select: none;
+    margin: 1em;
+}
+
+#numberline canvas {
+    position: relative;
+    /* z-index: 1; */
+}
+
+#numberline img {
+    position: absolute;
+    bottom: 0px;
+    vertical-align: bottom;
+    /* z-index: 0; */
+}
+
+.question {
+    font-size: 1.5em;
+}
+
+.question .inequality {
+    font-weight: bold;
+    display: inline-block;
+    margin: 0.5em;
+}
+
+.score {
+    user-select: none;
+    margin-top: 1em;
+}
