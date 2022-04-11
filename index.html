@@ -5,17 +5,19 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div class="question">Graph <span class="inequality"></span></div>
-        <div id="numberline">
-            <img src="rsc/numberline.png">
-            <canvas width="640" height="100"></canvas>
+        <div id="wrapper">
+            <div class="question">Graph <span class="inequality"></span></div>
+            <div id="numberline">
+                <img src="rsc/numberline.png">
+                <canvas width="640" height="100"></canvas>
+            </div>
+            <div class="buttons">
+                <button id="switchDirectionBtn">Switch direction</button>
+                <button id="changeCircleBtn">Change circle</button>
+                <button id="checkBtn">Check answer</button>
+            </div>
+            <div class="score">Score: <span class="num">0</span></div>
         </div>
-        <div class="buttons">
-            <button id="switchDirectionBtn">Switch direction</button>
-            <button id="changeCircleBtn">Change circle</button>
-            <button id="checkBtn">Check answer</button>
-        </div>
-        <div class="score">Score: <span class="num">0</span></div>
         <script src="scripts/index.js"></script>
     </body>
 </html>
