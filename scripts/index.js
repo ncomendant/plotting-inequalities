@@ -1,5 +1,6 @@
 (() => {
     const INEQUALITY_SYMBOLS = '<≤≥>';
+    const VARIABLES = 'bcdefghjkmnpqrstwxyz';
     const RANGE = 10;
     const CIRCLE_Y = 55;
     const ANSWER_CIRCLE_Y = 15;
@@ -117,12 +118,28 @@
         }
     };
 
+    const flipInequalitySymbol = (sign) => {
+        switch (sign) {
+            case '<':
+                return '>';
+            case '>':
+                return '<';
+            case '≤':
+                return '≥';
+            case '≥':
+                return '≤';
+        }
+    };
+
     const initProblem = inequalityEl => {
+        const variable = VARIABLES[Math.floor(Math.random()*VARIABLES.length)];
         const inequalitySymbol = INEQUALITY_SYMBOLS[Math.floor(Math.random()*INEQUALITY_SYMBOLS.length)];
         const open = '<>'.indexOf(inequalitySymbol) >= 0;
         const rightDirection = '≥>'.indexOf(inequalitySymbol) >= 0;
         const num = Math.floor(Math.random()*(RANGE + 1)) - (RANGE/2);
-        const question = `x ${inequalitySymbol} ${num}`;
+        const question = (Math.random() >= 0.5) ? 
+            `${variable} ${inequalitySymbol} ${num}`: 
+            `${num} ${flipInequalitySymbol(inequalitySymbol)} ${variable}`;
         inequalityEl.textContent = question;
         return {num, open, rightDirection};
     };
