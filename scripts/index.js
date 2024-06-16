@@ -14,6 +14,19 @@
         const checkBtn = document.querySelector('#checkBtn');
         const scoreNumEl = document.querySelector('.score .num');
 
+        // Dark mode detection and setting
+        const setColorScheme = () => {
+            const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            document.body.classList.toggle('dark-mode', isDarkMode);
+            document.body.classList.toggle('light-mode', !isDarkMode);
+        };
+
+        // Apply color scheme on load
+        setColorScheme();
+
+        // Listen for changes in the color scheme
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setColorScheme);
+
         let state = {
             answer: initProblem(inequalityEl), // {num: int, open: bool, rightDirection: bool}
             response: {num: 0, open: true, rightDirection: true}, // {num: int, open: bool, rightDirection: bool}
