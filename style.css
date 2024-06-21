@@ -76,3 +76,7 @@ body.dark-mode #wrapper {
     background-color: #333;
     color: white;
 }
+
+body.dark-mode #numberline img {
+    filter: invert(1);
+}
